@@ -10,11 +10,12 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
-
+import com.example.testfinal.models.UserInfo;
 public interface APIInterface{
+
     @Headers("content-type: application/json")
     @FormUrlEncoded
     @POST("authenticate.py")
 
-    abstract Call<APIResponse> performUserSignIn(  @Field("login") @Body String UserNam,  @Field("password") @Body String Password) ;
+    abstract Call<APIResponse> performUserSignIn( @Field("login") String UserNam,  @Field("password") String Password) ;
 }

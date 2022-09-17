@@ -27,22 +27,23 @@ public class MainActivity extends AppCompatActivity {
    public TextView login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 name=(EditText)findViewById(R.id.name);
 password=(EditText)findViewById(R.id.password);
 Submit=(Button)findViewById(R.id.button);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-DesplayUsersInformation("hi");
-            }
-        });
 
+      Submit.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+
+              PerformLogin();
+          }
+      });
     }
 
-    private void PerformLogin(){
+    public void PerformLogin(){
 String UserName = name.getText().toString();
 String Password = password.getText().toString();
 String Header = "content-type: application/json";
@@ -57,6 +58,7 @@ String Header = "content-type: application/json";
             @Override
             public void onFailure(Call<APIResponse> call, Throwable t) {
 DesplayUsersInformation("no");
+
             }
         });
     }
